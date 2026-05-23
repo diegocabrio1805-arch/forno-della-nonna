@@ -31,7 +31,7 @@ export function Header({ cartItemCount }: HeaderProps) {
             flexShrink: 0
           }}>
             <img 
-              src="/logo_nonna.png" 
+              src="logo_nonna.png" 
               alt="Logo Forno Della Nonna" 
               style={{ width: '100%', height: '100%', objectFit: 'contain', position: 'relative', zIndex: 1 }}
             />

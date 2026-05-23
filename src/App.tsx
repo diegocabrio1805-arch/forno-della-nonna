@@ -10,15 +10,13 @@ import { ShoppingCart } from 'lucide-react';
 import './index.css';
 
 const MENU_DATA: PizzaItem[] = [
-// ... (resto sin cambios arriba, se deja intacto por ahora porque se pasará al siguiente chunk)
-
   {
     id: 'mozzarella',
     name: 'Especial de la Casa',
     description: 'Nuestra creación estrella: Rúcula fresca, queso parmesano en escamas y jamón crudo sobre una base crujiente. ¡Pura elegancia!',
     price: 80000,
     price12: 100000,
-    image: '/pizza_especial.png'
+    image: 'pizza_especial.png'
   },
   {
     id: 'napolitana',
@@ -26,7 +24,7 @@ const MENU_DATA: PizzaItem[] = [
     description: 'Base clásica con jugosas rodajas de tomate seleccionados, ajo finamente picado, mozzarella elástica y hojas de albahaca fresca cosechada al día.',
     price: 65000,
     price12: 80000,
-    image: '/pizza_napolitana.png'
+    image: 'pizza_napolitana.png'
   },
   {
     id: 'pepperoni',
@@ -34,7 +32,7 @@ const MENU_DATA: PizzaItem[] = [
     description: 'Abundantes y crujientes láminas de pepperoni de primer nivel curado artesanalmente, sobre una deliciosa y cremosa cama de queso mozzarella.',
     price: 70000,
     price12: 90000,
-    image: '/pizza_pepperoni.png'
+    image: 'pizza_pepperoni.png'
   },
   {
     id: 'pollo_catupiry',
@@ -42,7 +40,7 @@ const MENU_DATA: PizzaItem[] = [
     description: 'Pollo desmenuzado súper jugoso y sazonado a las finas hierbas, coronado con los emblemáticos y generosos hilos de queso Catupiry original.',
     price: 70000,
     price12: 90000,
-    image: '/pizza_pollo_catupiry.png'
+    image: 'pizza_pollo_catupiry.png'
   },
   {
     id: 'jamon_queso',
@@ -50,7 +48,7 @@ const MENU_DATA: PizzaItem[] = [
     description: 'Láminas finas de jamón cocido seleccionado de alta calidad, doble capa de mozzarella fundida y aceitunas negras sobre nuestra masa de autor.',
     price: 65000,
     price12: 80000,
-    image: '/pizza_jamon_queso.png'
+    image: 'pizza_jamon_queso.png'
   },
   {
     id: 'cuatro_quesos',
@@ -58,7 +56,7 @@ const MENU_DATA: PizzaItem[] = [
     description: 'Una obra de arte láctea: combinación majestuosa de Mozzarella premium, Gorgonzola intenso, Provolone ahumado y un toque de Parmesano gratinado.',
     price: 75000,
     price12: 95000,
-    image: '/pizza_4_quesos.png'
+    image: 'pizza_4_quesos.png'
   },
   {
     id: 'mozzarella_clasica',
@@ -66,7 +64,7 @@ const MENU_DATA: PizzaItem[] = [
     description: 'La reina indiscutible: abundante queso mozzarella de primera fundido a la perfección sobre nuestra salsa de tomate artesanal y hojas de albahaca fresca.',
     price: 60000,
     price12: 75000,
-    image: '/pizza_mozzarella.png'
+    image: 'pizza_mozzarella.png'
   },
   {
     id: 'pizza_bianca',
@@ -74,7 +72,7 @@ const MENU_DATA: PizzaItem[] = [
     description: 'Una exquisitez sin salsa de tomate. Fina mezcla de quesos cremosos, ajo asado y un toque de aceite de oliva premium sobre nuestra masa crujiente.',
     price: 55000,
     price12: 70000,
-    image: '/pizza_bianca.png'
+    image: 'pizza_bianca.png'
   }
 ];
 
@@ -84,7 +82,7 @@ const EXTRAS_DATA: PizzaItem[] = [
     name: 'Línea Coca-Cola',
     description: 'Nuestras opciones de Coca-Cola en botella de plástico, bien frías para acompañar su pizza.',
     price: 0, // No se usa directamente porque hay variantes
-    image: '/coca_cola_fog.png',
+    image: 'coca_cola_fog.png',
     variants: [
       { id: 'coca_cola_2l', name: 'Botella 2 Litros', price: 18000 },
       { id: 'coca_cola_500ml', name: 'Botella 500 ml', price: 8000 },
@@ -96,7 +94,7 @@ const EXTRAS_DATA: PizzaItem[] = [
     name: 'Papas Fritas Crujientes',
     description: 'Porción dorada a la perfección, crujientes por fuera y tiernas por dentro.',
     price: 0,
-    image: '/papas_fritas_1779419086376.png',
+    image: 'papas_fritas_1779419086376.png',
     variants: [
       { id: 'papas_fritas_premium', name: 'Papas Premium (Compartir)', price: 25000 },
       { id: 'papas_fritas_personal', name: 'Papas Personal (Individual)', price: 15000 }
@@ -107,25 +105,25 @@ const EXTRAS_DATA: PizzaItem[] = [
 const STORIES_DATA = [
   {
     id: 'story_1',
-    video: '/WhatsApp Video 2026-05-22 at 09.42.20.mp4',
+    video: 'WhatsApp Video 2026-05-22 at 09.42.20.mp4',
     title: 'El Arte del Amasado 👨‍🍳',
     subtitle: 'Nuestra masa artesanal de fermentación lenta.'
   },
   {
     id: 'story_2',
-    video: '/WhatsApp Video 2026-05-22 at 09.42.44.mp4',
+    video: 'WhatsApp Video 2026-05-22 at 09.42.44.mp4',
     title: 'Salsa Secreta de la Casa 🍅',
     subtitle: 'Preparada con tomates seleccionados.'
   },
   {
     id: 'story_3',
-    video: '/WhatsApp Video 2026-05-22 at 09.45.14.mp4',
+    video: 'WhatsApp Video 2026-05-22 at 09.45.14.mp4',
     title: '¡Al Horno de Leña! 🔥',
     subtitle: 'Horneado perfecto para ese borde crujiente.'
   },
   {
     id: 'story_4',
-    video: '/WhatsApp Video 2026-05-22 at 09.45.15.mp4',
+    video: 'WhatsApp Video 2026-05-22 at 09.45.15.mp4',
     title: 'Queso Derretido Real 🧀',
     subtitle: 'El toque final que hace la magia.'
   }

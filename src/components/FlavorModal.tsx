@@ -10,11 +10,11 @@ interface FlavorModalProps {
 }
 
 const FLAVOR_LIST = [
-  { name: 'Coca-Cola Original', logo: '/coca_cola_fog.png' },
-  { name: 'Coca-Cola Zero', logo: '/coca_zero_bottle.png' },
-  { name: 'Fanta Naranja', logo: '/fanta_naranja_bottle.png' },
-  { name: 'Fanta Guaraná', logo: '/fanta_guarana_bottle.png' },
-  { name: 'Sprite', logo: '/sprite_bottle.png' }
+  { name: 'Coca-Cola Original', logo: 'coca_cola_fog.png' },
+  { name: 'Coca-Cola Zero', logo: 'coca_zero_bottle.png' },
+  { name: 'Fanta Naranja', logo: 'fanta_naranja_bottle.png' },
+  { name: 'Fanta Guaraná', logo: 'fanta_guarana_bottle.png' },
+  { name: 'Sprite', logo: 'sprite_bottle.png' }
 ];
 
 export function FlavorModal({ isOpen, onClose, beverage, onConfirm }: FlavorModalProps) {
