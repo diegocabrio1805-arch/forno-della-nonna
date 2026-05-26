@@ -5,6 +5,7 @@ import type { PizzaItem } from './components/PizzaCard';
 import { CartModal } from './components/CartModal';
 import { ToppingsModal } from './components/ToppingsModal';
 import { FlavorModal } from './components/FlavorModal';
+import { TonicFlavorModal } from './components/TonicFlavorModal';
 import { useCart } from './hooks/useCart';
 import { ShoppingCart } from 'lucide-react';
 import './index.css';
@@ -73,6 +74,17 @@ const MENU_DATA: PizzaItem[] = [
     price: 55000,
     price12: 70000,
     image: 'pizza_bianca.png'
+  },
+  {
+    id: 'papas_fritas',
+    name: 'Papas Fritas Crujientes',
+    description: 'Porción dorada a la perfección, crujientes por fuera y tiernas por dentro. ¡El acompañamiento perfecto!',
+    price: 0,
+    image: 'papas_fritas_1779419086376.png',
+    variants: [
+      { id: 'papas_fritas_premium', name: 'Papas Premium (Compartir)', price: 25000 },
+      { id: 'papas_fritas_personal', name: 'Papas Personal (Individual)', price: 15000 }
+    ]
   }
 ];
 
@@ -90,14 +102,26 @@ const EXTRAS_DATA: PizzaItem[] = [
     ]
   },
   {
-    id: 'papas_fritas',
-    name: 'Papas Fritas Crujientes',
-    description: 'Porción dorada a la perfección, crujientes por fuera y tiernas por dentro.',
+    id: 'cervezas_premium',
+    name: 'Cervezas Premium (750ml)',
+    description: 'Las mejores marcas internacionales en botella de 750ml para maridar su pizza como se debe.',
     price: 0,
-    image: 'papas_fritas_1779419086376.png',
+    image: 'cervezas_unificadas.png',
     variants: [
-      { id: 'papas_fritas_premium', name: 'Papas Premium (Compartir)', price: 25000 },
-      { id: 'papas_fritas_personal', name: 'Papas Personal (Individual)', price: 15000 }
+      { id: 'cerveza_heineken_750ml', name: 'Cerveza Heineken 750ml', price: 18000 },
+      { id: 'cerveza_corona_750ml', name: 'Cerveza Corona 750ml', price: 20000 }
+    ]
+  },
+  {
+    id: 'tonica_de_la_costa_unificada',
+    name: 'Tónicas De la Costa',
+    description: 'La refrescante agua tónica nacional (Sin Azúcar) en sus sabores clásica (Original) y Grapefruit (Rosada). Elija su tamaño.',
+    price: 0,
+    image: 'tonica_delacosta_unificada.png',
+    variants: [
+      { id: 'tonica_delacosta_size_2l', name: 'Botella 2 Litros', price: 12000 },
+      { id: 'tonica_delacosta_size_pequena', name: 'Botella Pequeña', price: 6000 },
+      { id: 'tonica_delacosta_size_lata', name: 'Lata', price: 6000 }
     ]
   }
 ];
@@ -135,6 +159,7 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedPizzaForToppings, setSelectedPizzaForToppings] = useState<PizzaItem | null>(null);
   const [selectedBeverageForFlavor, setSelectedBeverageForFlavor] = useState<PizzaItem | null>(null);
+  const [selectedTonicForFlavor, setSelectedTonicForFlavor] = useState<PizzaItem | null>(null);
 
   return (
     <div style={{ 
@@ -167,9 +192,9 @@ function App() {
         </div>
 
         <div style={{ marginTop: '5rem', marginBottom: '3rem', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'white' }}>Bebidas y Adicionales</h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'white' }}>Bebidas</h2>
           <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto', fontSize: '1.125rem' }}>
-            Complete su pedido con nuestras opciones extra.
+            Acompañe su pizza con nuestra selección de bebidas bien frías.
           </p>
         </div>
 
@@ -185,10 +210,18 @@ function App() {
               onAdd={(item) => {
                 if (item.id.startsWith('coca_cola')) {
                   setSelectedBeverageForFlavor(item);
+                } else if (item.id.startsWith('tonica_delacosta_size_')) {
+                  setSelectedTonicForFlavor(item);
                 } else if (item.id.startsWith('papas_fritas')) {
                   setSelectedPizzaForToppings(item);
                 } else {
-                  addToCart(item, []);
+                  let finalItem = { ...item };
+                  if (item.id === 'cerveza_heineken_750ml') {
+                    finalItem.image = 'cerveza_heineken.png';
+                  } else if (item.id === 'cerveza_corona_750ml') {
+                    finalItem.image = 'cerveza_corona.png';
+                  }
+                  addToCart(finalItem, []);
                 }
               }} 
             />
@@ -327,6 +360,14 @@ function App() {
         isOpen={!!selectedBeverageForFlavor}
         onClose={() => setSelectedBeverageForFlavor(null)}
         beverage={selectedBeverageForFlavor}
+        onConfirm={(beverage) => addToCart(beverage, [])}
+      />
+
+      {/* Tonic Flavor Modal */}
+      <TonicFlavorModal
+        isOpen={!!selectedTonicForFlavor}
+        onClose={() => setSelectedTonicForFlavor(null)}
+        beverage={selectedTonicForFlavor}
         onConfirm={(beverage) => addToCart(beverage, [])}
       />
     </div>

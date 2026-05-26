@@ -138,6 +138,37 @@ export function CartModal({ items, total, onClose, onRemove, onClear }: CartModa
             <button className="btn btn-primary" style={{ width: '100%', padding: '1rem' }} onClick={handleOrder}>
               Confirmar por WhatsApp
             </button>
+            <button 
+              style={{ 
+                width: '100%', 
+                padding: '0.75rem', 
+                background: 'transparent', 
+                border: '1px solid rgba(220, 38, 38, 0.4)', 
+                color: '#ef4444', 
+                borderRadius: 'var(--radius-md)', 
+                cursor: 'pointer', 
+                marginTop: '0.75rem', 
+                fontFamily: 'inherit',
+                fontWeight: 600,
+                transition: 'all 0.2s'
+              }} 
+              onClick={() => {
+                if (window.confirm('¿Está seguro de que desea cancelar su pedido? Se vaciará el carrito.')) {
+                  onClear();
+                  onClose();
+                }
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.background = 'rgba(220, 38, 38, 0.1)';
+                e.currentTarget.style.borderColor = '#ef4444';
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.borderColor = 'rgba(220, 38, 38, 0.4)';
+              }}
+            >
+              Cancelar Pedido
+            </button>
           </div>
         )}
       </div>

@@ -51,7 +51,8 @@ export function PizzaCard({ pizza, onAdd }: PizzaCardProps) {
             left: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover'
+            objectFit: (pizza.id.includes('coca_cola') || pizza.id.includes('cerveza') || pizza.id.includes('tonica') || pizza.id.includes('papas_fritas')) ? 'contain' : 'cover',
+            padding: (pizza.id.includes('coca_cola') || pizza.id.includes('cerveza') || pizza.id.includes('tonica') || pizza.id.includes('papas_fritas')) ? '0.5rem' : '0'
           }}
         />
       </div>

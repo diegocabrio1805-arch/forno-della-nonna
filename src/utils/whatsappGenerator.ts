@@ -13,10 +13,12 @@ export function generateWhatsAppLink(
   
   items.forEach(item => {
     let emoji = '🍕';
-    if (item.id.startsWith('coca_cola')) {
+    if (item.id.startsWith('coca_cola') || item.id.startsWith('tonica_')) {
       emoji = '🥤';
     } else if (item.id.startsWith('papas_fritas')) {
       emoji = '🍟';
+    } else if (item.id.startsWith('cerveza')) {
+      emoji = '🍺';
     }
     text += `${emoji} ${item.quantity}x ${item.name} - ${(item.price * item.quantity).toLocaleString('es-PY')} Gs.\n`;
     if (item.toppings && item.toppings.length > 0) {
